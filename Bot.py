@@ -5,7 +5,9 @@ from discord.ext import commands
 import dadosDefinitivos
 
 # Mudei para que o prefix seja . e aceite nos comandos letras maiusculas e minisculas fodase
-nimb = commands.Bot('.', case_insensitive = True)
+intents = discord.Intents.default() # tive que mudar por politicas novas do discord
+intents.message_content = True
+nimb = commands.Bot(intents=intents, command_prefix=".", case_insensitive = True)
 dados = True
 ligado = True
 @nimb.event
@@ -49,7 +51,7 @@ async def ban(ctx, user: discord.Member):
 @nimb.command()
 async def comandos(ctx):
   if ligado:
-    await ctx.send('**A lista de comandos é:** ```\n kick \n ban \n criadores \n teste \n dice```')
+    await ctx.send('**A lista de comandos é:** ```\n criadores \n clear \n ban \n dice \n teste \n kick```')
 
 @nimb.command()
 async def teste(ctx):
@@ -59,7 +61,7 @@ async def teste(ctx):
 @nimb.command()
 async def criadores(ctx):
   if ligado:
-    await ctx.send('<@365660914177015809> e <@496795235289006091> me foderam e me colocaram para trabalhar')
+    await ctx.send('**Git dos criadores:** \n https://github.com/DarthFontes \n https://github.com/Andre-Felipe-Galvao-Almeida')
 
 @nimb.command(aliases = ['purge', 'delete'])
 @commands.has_permissions(manage_messages = True)
@@ -82,11 +84,11 @@ async def ccbbededba(ctx):
 async def morra(ctx):
   global ligado
   if ctx.author.id == 365660914177015809 or ctx.author.id == 496795235289006091:
-    print('foi porra')
     if ligado:
       ligado = False
+      await ctx.send('**I will be back**')
     else:
       ligado = True
-      await ctx.send('**EU VOLTEI PORRA**')
+      await ctx.send('**Não há morte**')
 
-nimb.run('Token')
+nimb.run('')

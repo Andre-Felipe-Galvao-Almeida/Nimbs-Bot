@@ -3,7 +3,9 @@ import discord
 from discord.ext import commands
 import dadosDefinitivos
 
-nimb = commands.Bot('.', case_insensitive = True)
+intents = discord.Intents.default()
+intents.message_content = True
+nimb = commands.Bot(intents=intents, command_prefix=".", case_insensitive = True)
 dados = True
 
 @nimb.event
@@ -27,4 +29,4 @@ async def desativar_dados(ctx):
     dados = True
     await ctx.send(f'{ctx.author.mention} Dados ativados, EM TODOS OS SERVIDORES')
 
-nimb.run('Token')
+nimb.run('')
