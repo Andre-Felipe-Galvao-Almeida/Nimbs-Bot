@@ -73,12 +73,10 @@ async def clear(ctx, amount: int = 1000000):
 async def dee(ctx):
   if ligado:
     await ctx.author.send(f'Parabéns por descobrir o segredo {ctx.author.mention} \n **Não repasse para frente, assim não estraga a brincadeira** \n https://discord.gg/g9WZSDSDZT \n https://i.pinimg.com/564x/1f/54/67/1f54674fbc2efec9caa124988406f945.jpg')
-    time.sleep(1000)
 
 @nimb.command()
 async def ccbbededba(ctx):
-  await ctx.author.send('Modo Deus desboqueado')
-  time.sleep(300)
+  await ctx.author.send('NERD')
 
 @nimb.command()
 async def morra(ctx):
